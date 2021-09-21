@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2017/06/15 13:21:47.000.551,=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/06/15 13:44:18.000.992,=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/06/15 13:46:59.000.520,=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/06/15 13:48:55.000.424,=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/06/15 14:38:45.000.571,=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/06/15 14:40:29.000.481,=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/06/15 15:09:21.000.066,=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/10/23 15:17:19.000.301,=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/11/13 11:51:33.000.119,=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/11/13 11:51:49.000.801,D:\Edit Source Code\2017\Queuing\QueuingCall\mainForm.pas=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/11/13 11:51:49.000.801,D:\Edit Source Code\2017\Queuing\QueuingCall\mainForm.dfm=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2017/11/13 11:52:09.000.366,D:\Edit Source Code\2017\Queuing\QueuingCall\QueueCall.dproj=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2017/11/14 15:34:24.000.349,=D:\Edit Source Code\2017\Queuing\QueuingCall\Unit1.pas</Transaction>
+    <Transaction>2017/11/14 15:34:32.000.173,D:\Edit Source Code\2017\Queuing\QueuingCall\data.dfm=D:\Edit Source Code\2017\Queuing\QueuingCall\Unit1.dfm</Transaction>
+    <Transaction>2017/11/14 15:34:32.000.173,D:\Edit Source Code\2017\Queuing\QueuingCall\data.pas=D:\Edit Source Code\2017\Queuing\QueuingCall\Unit1.pas</Transaction>
+    <Transaction>2017/11/14 15:34:55.000.572,=D:\Edit Source Code\2017\Queuing\QueuingCall\Unit1.pas</Transaction>
+    <Transaction>2017/11/14 15:35:04.000.266,D:\Edit Source Code\2017\Queuing\QueuingCall\settingForm.dfm=D:\Edit Source Code\2017\Queuing\QueuingCall\Unit1.dfm</Transaction>
+    <Transaction>2017/11/14 15:35:04.000.266,D:\Edit Source Code\2017\Queuing\QueuingCall\settingForm.pas=D:\Edit Source Code\2017\Queuing\QueuingCall\Unit1.pas</Transaction>
+    <Transaction>2018/01/16 15:46:00.000.247,=D:\Edit Source Code\2017\Queuing\QueuingCall 2017-12-21\Unit1.pas</Transaction>
+    <Transaction>2018/01/16 15:47:43.000.632,D:\Edit Source Code\2017\Queuing\QueuingCall 2017-12-21\Unit1.dfm=D:\Edit Source Code\2017\Queuing\QueuingCall 2017-12-21\areaForm.dfm</Transaction>
+    <Transaction>2018/01/16 15:47:43.000.632,D:\Edit Source Code\2017\Queuing\QueuingCall 2017-12-21\Unit1.pas=D:\Edit Source Code\2017\Queuing\QueuingCall 2017-12-21\areaForm.pas</Transaction>
+    <Transaction>2018/01/16 16:39:06.000.752,D:\Edit Source Code\2017\Queuing\QueuingCall 2017-12-21\areaForm.pas=</Transaction>
+  </Transactions>
+</BorlandProject>

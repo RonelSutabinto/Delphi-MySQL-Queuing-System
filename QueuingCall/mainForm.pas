@@ -1,0 +1,642 @@
+unit mainForm;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils,  System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, PDJButton, Vcl.ExtCtrls, AdvPanel,
+  Vcl.Imaging.pngimage, AdvSmoothLabel, AdvShape, AdvSmoothPanel, NxCollection,
+  CurvyControls, frxDock, ToolPanels, AdvSmoothButton, Vcl.Menus,
+  Vcl.StdCtrls,  System.Variants,
+  SpeechLib_TLB, System.Win.ComObj, FireDAC.Stan.Intf, FireDAC.Comp.BatchMove,
+  FireDAC.Comp.BatchMove.Text, Parnassus.FMXContainer, Data.DB, MemDS, DBAccess,
+  MyAccess, Vcl.MPlayer,  AdvShapeButton, PasLibVlcPlayerUnit,
+  Vcl.Imaging.jpeg, GsScroller;
+
+type
+  TmainFrm = class(TForm)
+    AdvPanel1: TAdvPanel;
+    AdvPanelStyler1: TAdvPanelStyler;
+    AdvPanelStyler2: TAdvPanelStyler;
+    counter_lb4: TAdvSmoothLabel;
+    counter_lb5: TAdvSmoothLabel;
+    number_lb1: TAdvSmoothLabel;
+    counter_lb3: TAdvSmoothLabel;
+    counter_lb2: TAdvSmoothLabel;
+    counter_lb1: TAdvSmoothLabel;
+    number_lb2: TAdvSmoothLabel;
+    number_lb3: TAdvSmoothLabel;
+    number_lb4: TAdvSmoothLabel;
+    number_lb5: TAdvSmoothLabel;
+    PopupMenu1: TPopupMenu;
+    QueSettings1: TMenuItem;
+    Timer1: TTimer;
+    Button1: TButton;
+    Timer2: TTimer;
+    Timer3: TTimer;
+    manageOutQ: TMyQuery;
+    managecallQ: TMyQuery;
+    managecallQentry: TIntegerField;
+    managecallQtype: TStringField;
+    managecallQnumber: TIntegerField;
+    managecallQdate: TDateField;
+    managecallQcode: TStringField;
+    managecallQqueid: TIntegerField;
+    managecallQgroupno: TIntegerField;
+    manageOutQentry: TIntegerField;
+    manageOutQtype: TStringField;
+    manageOutQnumber: TIntegerField;
+    manageOutQdate: TDateField;
+    manageOutQtime: TTimeField;
+    manageOutQcode: TStringField;
+    manageOutQqueid: TIntegerField;
+    manageOutQgroupno: TIntegerField;
+    manageOutQexecutedby: TStringField;
+    manageOutQDepartment: TStringField;
+    manageOutQuserid: TStringField;
+    manageOutQcounter: TStringField;
+    updatemangeCallQ: TMyQuery;
+    managecallQcounter: TStringField;
+    managecallQisBeep: TBooleanField;
+    manageOutQisbeep: TBooleanField;
+    updateCallBeepQ: TMyQuery;
+    OpenDialog1: TOpenDialog;
+    AdvPanel2: TAdvPanel;
+    AdvPanelStyler3: TAdvPanelStyler;
+    AdvPanel3: TAdvPanel;
+    Close1: TMenuItem;
+    AdvSmoothLabel1: TAdvSmoothLabel;
+    AdvSmoothLabel2: TAdvSmoothLabel;
+    date_lb: TAdvSmoothLabel;
+    time_lb: TAdvSmoothLabel;
+    Timer4: TTimer;
+    Image2: TImage;
+    Image3: TImage;
+    Image5: TImage;
+    OpenVideo1: TMenuItem;
+    OpenDialog2: TOpenDialog;
+    OpenDialog: TOpenDialog;
+    CloseVideo1: TMenuItem;
+    AdvPanel4: TAdvPanel;
+    cntr_label2: TAdvSmoothLabel;
+    served_lb2: TAdvSmoothLabel;
+    pv: TPasLibVlcPlayer;
+    pvpanel: TAdvPanel;
+    cntr_label: TAdvSmoothLabel;
+    served_lb: TAdvSmoothLabel;
+    AdvPanel5: TAdvPanel;
+    Panel1: TPanel;
+    ListBox1: TListBox;
+    Label1: TLabel;
+    AdvSmoothButton1: TAdvSmoothButton;
+    AdvSmoothButton2: TAdvSmoothButton;
+    AdvSmoothButton3: TAdvSmoothButton;
+    Image6: TImage;
+    Image7: TImage;
+    RefreshVideo1: TMenuItem;
+    number_lb6: TAdvSmoothLabel;
+    number_lb7: TAdvSmoothLabel;
+    counter_lb6: TAdvSmoothLabel;
+    counter_lb7: TAdvSmoothLabel;
+    Image8: TImage;
+    GsScroller1: TGsScroller;
+    Image1: TImage;
+    Image4: TImage;
+    banner: TMyQuery;
+    procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure AdvSmoothButton14Click(Sender: TObject);
+    procedure QueSettings1Click(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
+    procedure Timer2Timer(Sender: TObject);
+    procedure Timer3Timer(Sender: TObject);
+    procedure Close1Click(Sender: TObject);
+    procedure Timer4Timer(Sender: TObject);
+    procedure pvMediaPlayerStopped(Sender: TObject);
+    procedure OpenVideo1Click(Sender: TObject);
+    procedure CloseVideo1Click(Sender: TObject);
+    procedure ScaleForm(F: TForm; ScreenWidth, ScreenHeight: LongInt) ;
+    procedure FormCreate(Sender: TObject);
+    procedure pvMediaPlayerEndReached(Sender: TObject);
+    procedure AdvSmoothButton1Click(Sender: TObject);
+    procedure AdvSmoothButton3Click(Sender: TObject);
+    procedure AdvSmoothButton2Click(Sender: TObject);
+    procedure RefreshVideo1Click(Sender: TObject);
+    procedure ChangeScale(M, D: Integer); override;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+    var
+      areaOk    : Boolean;
+  end;
+
+var
+  mainFrm: TmainFrm;
+  BeepCount : Integer;
+
+implementation
+
+{$R *.dfm}
+
+uses settingForm, data;
+
+//RP1000 - 122
+//RP100 - 145
+var
+  loopPlay : Boolean;
+  listCount : Integer;
+  callStr : String;
+
+procedure TmainFrm.AdvSmoothButton14Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure TmainFrm.ChangeScale(M, D: Integer);
+var
+  //_OH:Old Height
+  //_OT : Old Top
+  number_lb1_OH,number_lb2_OH,
+  number_lb3_OH,number_lb4_OH,
+  number_lb5_OH,number_lb6_OH,
+  number_lb7_OH: Integer;
+
+  counter_lb1_OH,counter_lb2_OH,
+  counter_lb3_OH,counter_lb4_OH,
+  counter_lb5_OH,counter_lb6_OH,
+  counter_lb7_OH : Integer;
+
+  mainFrm_OH : Integer;
+
+  Image1_OH,Image2_OH,
+  Image3_OH,Image4_OH,
+  Image5_OH,Image6_OH,
+  Image7_OH : Integer;
+
+  Image1_OT,Image2_OT,
+  Image3_OT,Image4_OT,
+  Image5_OT,Image6_OT,
+  Image7_OT : Integer;
+
+  AdvPanel3_OH : Integer;
+  AdvPanel3_OT : Integer;
+  AdvPanel3_OW : Integer;
+  AdvPanel3_OL : Integer;
+
+  served_lb_OH   : Integer;
+  cntr_label_OH  : Integer;
+  served_lb2_OH  : Integer;
+  cntr_label2_OH : Integer;
+
+  AdvSmoothLabel2_OH : Integer;
+  AdvSmoothLabel1_OH :Integer;
+
+  banner0_OH,banner1_OH :Integer;
+begin
+ // mainFrm_OH     :=  mainFrm
+
+
+ mainFrm.Height := banner.FieldByName('heigth').AsInteger;// screen.Height; //1100;
+ mainFrm.Width  := banner.FieldByName('width').AsInteger; //screen.Width; //1940;
+
+ AdvPanel3_OH   := AdvPanel3.Height;
+ AdvPanel3_OW   := AdvPanel3.Width;
+ AdvPanel3_OT   := AdvPanel3.Top;
+ AdvPanel3_OL   := AdvPanel3.Left;
+
+ served_lb_OH    := served_lb.Caption.Font.Height;
+ cntr_label_OH   := cntr_label.Caption.Font.Height;
+ served_lb2_OH   := served_lb2.Caption.Font.Height;
+ cntr_label2_OH  := cntr_label2.Caption.Font.Height;
+
+ banner0_OH      :=  mainFrm.GsScroller1.Items[0].Font.Height;
+ banner1_OH      :=  mainFrm.GsScroller1.Items[1].Font.Height;
+
+ AdvSmoothLabel2_OH := AdvSmoothLabel2.Caption.Font.Height;
+ AdvSmoothLabel1_OH := AdvSmoothLabel1.Caption.Font.Height;
+
+
+ Image1_OH      := Image1.Height;
+ Image2_OH      := Image2.Height;
+ Image3_OH      := Image3.Height;
+ Image4_OH      := Image4.Height;
+ Image5_OH      := Image5.Height;
+ Image6_OH      := Image6.Height;
+ Image7_OH      := Image7.Height;
+
+ {Image1_OT      := Image1.Top;
+ Image2_OT      := Image2.Top;
+ Image3_OT      := Image3.Top;
+ Image4_OT      := Image4.Top;
+ Image5_OT      := Image5.Top;
+ Image6_OT      := Image6.Top;
+ Image7_OT      := Image7.Top;}
+
+  number_lb1_OH := number_lb1.Caption.Font.Height;
+  number_lb2_OH := number_lb2.Caption.Font.Height;
+  number_lb3_OH := number_lb3.Caption.Font.Height;
+  number_lb4_OH := number_lb4.Caption.Font.Height;
+  number_lb5_OH := number_lb5.Caption.Font.Height;
+  number_lb6_OH := number_lb6.Caption.Font.Height;
+  number_lb7_OH := number_lb7.Caption.Font.Height;
+
+  counter_lb1_OH := counter_lb1.Caption.Font.Height;
+  counter_lb2_OH := counter_lb2.Caption.Font.Height;
+  counter_lb3_OH := counter_lb3.Caption.Font.Height;
+  counter_lb4_OH := counter_lb4.Caption.Font.Height;
+  counter_lb5_OH := counter_lb5.Caption.Font.Height;
+  counter_lb6_OH := counter_lb6.Caption.Font.Height;
+  counter_lb7_OH := counter_lb7.Caption.Font.Height;
+
+  //=================================================
+  //=================================================
+  //=================================================
+  inherited;
+  // Overwrite the bad scaling in the component
+  AdvPanel3.Height := MulDiv(AdvPanel3_OH, M, D);//+20;
+  AdvPanel3.Width  := MulDiv(AdvPanel3_OW, M, D);
+  AdvPanel3.Top    := MulDiv(AdvPanel3_OT, M, D);
+  AdvPanel3.Left   := MulDiv(AdvPanel3_OL, M, D);
+
+  Image1.Height    := MulDiv(Image1_OH, M, D);
+  Image2.Height    := MulDiv(Image2_OH, M, D);
+  Image3.Height    := MulDiv(Image3_OH, M, D);
+  Image4.Height    := MulDiv(Image4_OH, M, D);
+  Image5.Height    := MulDiv(Image5_OH, M, D);
+  Image6.Height    := MulDiv(Image6_OH, M, D);
+  Image7.Height    := MulDiv(Image7_OH, M, D);
+
+  mainFrm.GsScroller1.Items[0].Font.Height  := MulDiv(banner0_OH, M, D);
+  mainFrm.GsScroller1.Items[1].Font.Height  := MulDiv(banner1_OH, M, D);
+
+  served_lb.Caption.Font.Height        := MulDiv(served_lb_OH, M, D);
+  served_lb.CaptionShadow.Font.Height  := MulDiv(served_lb_OH, M, D);
+
+  cntr_label.Caption.Font.Height       := MulDiv(cntr_label_OH, M, D);
+  cntr_label.CaptionShadow.Font.Height := MulDiv(cntr_label_OH, M, D);
+
+  served_lb2.Caption.Font.Height        := MulDiv(served_lb2_OH, M, D);
+  served_lb2.CaptionShadow.Font.Height  := MulDiv(served_lb2_OH, M, D);
+
+  cntr_label2.Caption.Font.Height       := MulDiv(cntr_label2_OH, M, D);
+  cntr_label2.CaptionShadow.Font.Height := MulDiv(cntr_label2_OH, M, D);
+
+  AdvSmoothLabel2.Caption.Font.Height := MulDiv(AdvSmoothLabel2_OH, M, D);
+  AdvSmoothLabel1.Caption.Font.Height := MulDiv(AdvSmoothLabel1_OH, M, D);
+
+  number_lb1.Caption.Font.Height := MulDiv(number_lb1_OH, M, D);
+  number_lb2.Caption.Font.Height := MulDiv(number_lb2_OH, M, D);
+  number_lb3.Caption.Font.Height := MulDiv(number_lb3_OH, M, D);
+  number_lb4.Caption.Font.Height := MulDiv(number_lb4_OH, M, D);
+  number_lb5.Caption.Font.Height := MulDiv(number_lb5_OH, M, D);
+  number_lb6.Caption.Font.Height := MulDiv(number_lb6_OH, M, D);
+  number_lb7.Caption.Font.Height := MulDiv(number_lb7_OH, M, D);
+
+
+  counter_lb1.Caption.Font.Height := MulDiv(counter_lb1_OH, M, D);
+  counter_lb2.Caption.Font.Height := MulDiv(counter_lb2_OH, M, D);
+  counter_lb3.Caption.Font.Height := MulDiv(counter_lb3_OH, M, D);
+  counter_lb4.Caption.Font.Height := MulDiv(counter_lb4_OH, M, D);
+  counter_lb5.Caption.Font.Height := MulDiv(counter_lb5_OH, M, D);
+  counter_lb6.Caption.Font.Height := MulDiv(counter_lb6_OH, M, D);
+  counter_lb7.Caption.Font.Height := MulDiv(counter_lb7_OH, M, D);
+  // Other items go here
+end;
+
+procedure TmainFrm.AdvSmoothButton1Click(Sender: TObject);
+var
+  i : Integer;
+begin
+   ListBox1.Items.Clear;
+   OpenDialog.Options := [ofAllowMultiSelect];
+   if OpenDialog.Execute then begin
+      for i := 0 to OpenDialog.Files.Count - 1 do begin
+         ListBox1.Items.Add (OpenDialog.Files[i]);
+      end;
+   end;
+end;
+
+procedure TmainFrm.AdvSmoothButton2Click(Sender: TObject);
+begin
+  pv.visible := true;
+  loopPlay   := true;
+  pv.SetVideoScaleInPercent(100);
+  pv.SetAudioMute(true);
+  listCount  := ListBox1.ItemIndex;
+  pv.play(ListBox1.Items.Strings[ListBox1.ItemIndex]);
+end;
+
+procedure TmainFrm.AdvSmoothButton3Click(Sender: TObject);
+begin
+  AdvPanel5.Visible := false;
+end;
+
+procedure TmainFrm.Button1Click(Sender: TObject);
+var
+  SpVoice: Variant;
+begin
+   //SpVoice := CreateOleObject('SAPI.SpVoice');
+   //SpVoice.Speak('Ronel Sutabinto', SVSFDefault);
+
+    timer1.Enabled := true;
+    MessageBeep(MB_ICONASTERISK);
+    sleep(600);
+    MessageBeep(MB_ICONASTERISK);
+
+end;
+
+procedure TmainFrm.Close1Click(Sender: TObject);
+begin
+  close;
+end;
+
+procedure TmainFrm.CloseVideo1Click(Sender: TObject);
+begin
+  loopPlay := false;
+  pv.Stop;
+
+end;
+
+procedure TmainFrm.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  if not assigned(settingFrm) then
+  settingFrm := TsettingFrm.Create(Application);
+
+  settingFrm.Close;
+
+end;
+
+procedure TmainFrm.FormCreate(Sender: TObject);
+begin
+  //served_lb.visible   := true;
+  served_lb2.Visible  := true;
+  //cntr_label.Visible  := true;
+  cntr_label2.Visible := true;
+  PV.Visible          := true;
+  pvpanel.Visible     := true;
+
+  date_lb.Caption.Text := FormatDateTime('mmmm d, yyyy',now);
+  ScaleForm(mainFrm,screen.width,screen.Height);
+
+  //served_lb.visible   := false;
+  served_lb2.Visible  := false;
+  //cntr_label.Visible  := false;
+  cntr_label2.Visible := false;
+  PV.Visible          := false;
+  pvpanel.Visible     := false;
+end;
+
+procedure TmainFrm.FormShow(Sender: TObject);
+
+begin
+  Timer4.Enabled := true;
+  areaOk := false;
+  if not assigned(settingFrm) then
+  settingFrm := TsettingFrm.Create(Application);
+
+  settingFrm.ShowModal;
+end;
+
+procedure TmainFrm.OpenVideo1Click(Sender: TObject);
+var
+  I: Integer;
+begin
+ { pv.visible := true;
+  loopPlay   := true;
+  if OpenDialog.Execute then
+  begin
+     pv.play(OpenDialog.FileName);
+
+  end;  }
+  AdvPanel5.Top  := 214;
+  AdvPanel5.Left := 505;
+  AdvPanel5.BringToFront;
+  AdvPanel5.Visible := true;
+end;
+
+procedure TmainFrm.pvMediaPlayerEndReached(Sender: TObject);
+begin
+  if loopPlay then
+  begin
+    listCount := listCount + 1;
+
+    if listCount = ListBox1.Items.Count then
+    listCount := 0;
+
+    ListBox1.Selected[listCount] := true;
+    pv.play(ListBox1.Items.Strings[listCount]);
+
+  end;
+end;
+
+procedure TmainFrm.pvMediaPlayerStopped(Sender: TObject);
+begin
+ if loopPlay then
+ begin
+    pv.play(OpenDialog.FileName);
+ end
+ else
+ begin
+    pv.visible := false;
+ end;
+end;
+
+procedure TmainFrm.QueSettings1Click(Sender: TObject);
+begin
+  if not assigned(settingFrm) then
+  settingFrm := TsettingFrm.Create(Application);
+
+  settingFrm.ShowModal;
+end;
+
+procedure TmainFrm.RefreshVideo1Click(Sender: TObject);
+begin
+  pv.Refresh;
+end;
+
+procedure TmainFrm.Timer1Timer(Sender: TObject);
+begin
+  served_lb2.Visible  := true;
+  cntr_label2.Visible := true;
+  pvpanel.Visible     := true;
+
+  BeepCount := 0;
+  Timer2.Enabled := True;
+  Timer1.Enabled := False;
+end;
+
+procedure TmainFrm.Timer2Timer(Sender: TObject);
+var
+  SpVoice: Variant;
+begin
+  Inc(BeepCount);
+  If BeepCount = 1 then
+   begin
+    // SpVoice := CreateOleObject('SAPI.SpVoice');
+    // SpVoice.Speak(callStr, SVSFDefault);
+
+     //served_lb2.Visible  := true;
+     //cntr_label2.Visible := true;
+    // pvpanel.Visible     := true;
+
+     SpVoice := CreateOleObject('SAPI.SpVoice');
+     SpVoice.Speak(callStr, SVSFDefault);
+   end;
+
+  If BeepCount = 2 then
+    begin
+
+    if pv.Visible then
+    begin
+      served_lb2.Visible  := false;
+      cntr_label2.Visible := false;
+    end;
+
+      pvpanel.Visible     := false;
+
+      Timer2.Enabled      := False;
+    end;
+end;
+
+procedure TmainFrm.Timer3Timer(Sender: TObject);
+var
+  SpVoice: Variant;
+  typeStrT:String;
+begin
+  manageOutQ.Close;
+  manageOutQ.Open;
+
+  managecallQ.Close;
+  managecallQ.Open;
+
+
+  if managecallQqueid.AsInteger <> manageOutQqueid.AsInteger then
+  begin
+     if manageOutQtype.Text = 'BI' then
+     typeStrT := 'B I'
+     else  typeStrT := manageOutQtype.Text;
+
+     callStr := typeStrT +' '+manageOutQNumber.Text+ ' '+manageOutQcounter.Text+' please.';
+     updatemangeCallQ.ParamByName('type').Text       := manageOutQtype.Text;
+     updatemangeCallQ.ParamByName('number').Text     := manageOutQNumber.Text;
+     updatemangeCallQ.ParamByName('date').AsDate     := manageOutQdate.AsDateTime;
+     updatemangeCallQ.ParamByName('code').Text       := manageOutQcode.Text;
+     updatemangeCallQ.ParamByName('queid').AsInteger := manageOutQqueid.AsInteger;
+     updatemangeCallQ.ParamByName('groupno').Text    := manageOutQgroupno.Text;
+     updatemangeCallQ.ParamByName('Counter').Text    := manageOutQCounter.Text;
+     updatemangeCallQ.Execute;
+
+     served_lb.Caption.Text    :=  manageOutQtype.Text+ manageOutQNumber.Text;
+     cntr_label.Caption.Text   :=  manageOutQcounter.Text;
+
+     served_lb2.Caption.Text   :=  manageOutQtype.Text+ manageOutQNumber.Text;
+     cntr_label2.Caption.Text  :=  manageOutQcounter.Text;
+
+     number_lb7.Caption.Text  := number_lb6.Caption.Text;
+     counter_lb7.Caption.Text := counter_lb6.Caption.Text;
+     number_lb6.Caption.Text  := number_lb5.Caption.Text;
+     counter_lb6.Caption.Text := counter_lb5.Caption.Text;
+     number_lb5.Caption.Text  := number_lb4.Caption.Text;
+     counter_lb5.Caption.Text := counter_lb4.Caption.Text;
+     number_lb4.Caption.Text  := number_lb3.Caption.Text;
+     counter_lb4.Caption.Text := counter_lb3.Caption.Text;
+     number_lb3.Caption.Text  := number_lb2.Caption.Text;
+     counter_lb3.Caption.Text := counter_lb2.Caption.Text;
+     number_lb2.Caption.Text  := number_lb1.Caption.Text;
+     counter_lb2.Caption.Text := counter_lb1.Caption.Text;
+     number_lb1.Caption.Text  :=  manageOutQtype.Text+ manageOutQNumber.Text;
+     counter_lb1.Caption.Text :=  manageOutQcounter.Text;
+
+    timer1.Enabled := true;
+    //MessageBeep(MB_ICONASTERISK);
+    //sleep(600);
+    //MessageBeep(MB_ICONASTERISK);
+
+    //BeepCount := 0;
+    //Timer2.Enabled := True;
+
+    //SpVoice := CreateOleObject('SAPI.SpVoice');
+    //SpVoice.Speak(manageOutQtype.Text +' '+manageOutQNumber.Text+ ' '+manageOutQcounter.Text+' please.', SVSFDefault);
+  end
+  else if managecallQisBeep.AsBoolean  then
+  begin
+
+    served_lb.Caption.Text    :=  managecallQtype.Text + managecallQnumber.Text;
+    cntr_label.Caption.Text   :=  managecallQcounter.Text;
+    served_lb2.Caption.Text   :=  managecallQtype.Text + managecallQnumber.Text;
+    cntr_label2.Caption.Text  :=  managecallQcounter.Text;
+
+    if managecallQtype.Text = 'BI' then
+     typeStrT := 'B I'
+     else  typeStrT := managecallQtype.Text;
+
+    callStr :=  typeStrT+' '+managecallQnumber.Text+ ' '+managecallQcounter.Text+' please.';
+    updateCallBeepQ.Execute;
+
+    timer1.Enabled := true;
+    //MessageBeep(MB_ICONASTERISK);
+    //sleep(600);
+    //MessageBeep(MB_ICONASTERISK);
+
+    //BeepCount := 0;
+    //Timer2.Enabled := True;
+
+  end;
+
+end;
+
+procedure TmainFrm.Timer4Timer(Sender: TObject);
+begin
+  time_lb.Caption.Text := FormatDateTime('hh:mm:ss AM/PM',now);
+end;
+
+procedure TmainFrm.ScaleForm
+    (F: TForm; ScreenWidth, ScreenHeight: LongInt) ;
+begin
+   F.Scaled := True;
+   F.AutoScroll := False;
+   F.Position := poScreenCenter;
+   F.Font.Name := 'Arial';
+   if (Screen.Width <> ScreenWidth) then begin
+     F.Height :=
+         LongInt(F.Height) * LongInt(Screen.Height)
+         div ScreenHeight;
+     F.Width :=
+         LongInt(F.Width) * LongInt(Screen.Width)
+         div ScreenWidth;
+     F.ScaleBy(Screen.Width,ScreenWidth) ;
+   end;
+end;
+
+end.
+
+{
+========================
+========================
+procedure PlayAudio(ResourceID: string);
+var
+  ResStream: TResourceStream;
+  TmpFile: string;
+begin
+  ResStream := TResourceStream.Create(HInstance, ResourceID, RT_RCDATA);
+  try
+    TmpFile := TPath.Combine(TPath.GetTempPath, 'tmp.mp3');
+
+    ResStream.Position := 0;
+    ResStream.SaveToFile(TmpFile);
+    MediaPlayer1.FileName := TmpFile;
+
+    MediaPlayer1.Play;
+
+  finally
+    ResStream.Free;
+  end;
+end;
+
+PlayAudio('Resource_1');
+========================
+========================
+
+}

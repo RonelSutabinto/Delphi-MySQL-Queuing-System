@@ -1,0 +1,101 @@
+unit settingsForm;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, AdvPanel, Vcl.ExtCtrls, NxCollection,
+  Vcl.StdCtrls, Vcl.ComCtrls, NxEdit, Vcl.Buttons, Vcl.Imaging.pngimage,
+  PDJButton;
+
+type
+  TsettingFrm = class(TForm)
+    AdvPanel1: TAdvPanel;
+    Image1: TImage;
+    AdvPanel2: TAdvPanel;
+    AdvPanelStyler1: TAdvPanelStyler;
+    AdvPanel3: TAdvPanel;
+    PDJButton3: TPDJButton;
+    NxRadioButton1: TNxRadioButton;
+    NxRadioButton2: TNxRadioButton;
+    NxRadioButton3: TNxRadioButton;
+    NxRadioButton4: TNxRadioButton;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure PDJButton3Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  settingFrm: TsettingFrm;
+  isOK : Boolean;
+
+implementation
+
+{$R *.dfm}
+
+uses dataQ, QueuingSystem;
+
+procedure TsettingFrm.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := caFree;
+  settingFrm := Nil;
+end;
+
+procedure TsettingFrm.FormShow(Sender: TObject);
+begin
+  isOK := false;
+end;
+
+procedure TsettingFrm.PDJButton3Click(Sender: TObject);
+begin
+  //Dataque
+  if NxRadioButton1.Checked then
+  begin
+     Dataque.MyConnection1.Connected := false;
+     Dataque.MyConnection1.server    := 'server';
+     Dataque.MyConnection1.Connected := true;
+  end
+  else if NxRadioButton2.Checked then
+  begin
+     Dataque.MyConnection1.Connected := false;
+     Dataque.MyConnection1.server    := 'serverlao';
+     Dataque.MyConnection1.Connected := true;
+  end
+  else if NxRadioButton3.Checked then
+  begin
+     Dataque.MyConnection1.Connected := false;
+     Dataque.MyConnection1.server    := 'serverpao';
+     Dataque.MyConnection1.Connected := true;
+  end
+  else if NxRadioButton4.Checked then
+  begin
+     Dataque.MyConnection1.Connected := false;
+     Dataque.MyConnection1.server    := 'serversao';
+     Dataque.MyConnection1.Connected := true;
+  end;
+
+  isOK := true;
+
+  //if not assigned(mainFrm) then
+  //mainFrm.
+
+  try
+     mainFrm.InsertpubQ.ParamByName('code').Text       :=  randomChar();
+     mainFrm.InsertpubQ.ParamByName('Date').AsDate     := now;
+     mainFrm.InsertpubQ.ParamByName('Time').AsDateTime := now;
+     mainFrm.InsertpubQ.Execute;
+  except
+  end;
+
+  Dataque.publisherQ.Close;
+  Dataque.publisherQ.Filtered  := false;
+  Dataque.publisherQ.FilterSQL := 'date = '+quotedstr(FormatDateTime('YYYY-MM-DD',now));
+  Dataque.publisherQ.Filtered  := true;
+  Dataque.publisherQ.Open;
+end;
+
+end.

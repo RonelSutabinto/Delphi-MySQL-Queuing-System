@@ -1,0 +1,56 @@
+object Dataque: TDataque
+  OldCreateOrder = False
+  Height = 321
+  Width = 643
+  object MyConnection1: TMyConnection
+    Database = 'queuedb'
+    Username = 'root'
+    Server = 'localhost'
+    Connected = True
+    LoginPrompt = False
+    Left = 283
+    Top = 80
+    EncryptedPassword = '9DFF93FF9EFF96FF8CFF9AFF'
+  end
+  object queQ: TMyQuery
+    Connection = MyConnection1
+    SQL.Strings = (
+      'Select * from que')
+    Left = 64
+    Top = 64
+  end
+  object publisherQ: TMyQuery
+    Connection = MyConnection1
+    SQL.Strings = (
+      'Select * from publichers')
+    Left = 56
+    Top = 120
+    object publisherQentry: TIntegerField
+      FieldName = 'entry'
+    end
+    object publisherQcode: TStringField
+      FieldName = 'code'
+      Size = 4
+    end
+    object publisherQdate: TDateField
+      FieldName = 'date'
+    end
+    object publisherQtime: TTimeField
+      FieldName = 'time'
+    end
+  end
+  object manageinQ: TMyQuery
+    Connection = MyConnection1
+    SQL.Strings = (
+      'Select * from managein')
+    Left = 64
+    Top = 184
+  end
+  object manageOutQ: TMyQuery
+    Connection = MyConnection1
+    SQL.Strings = (
+      'Select * from manageout')
+    Left = 144
+    Top = 56
+  end
+end

@@ -1,0 +1,422 @@
+unit settingForm;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, AdvPanel, PDJButton, NxCollection,
+  Vcl.StdCtrls, Vcl.ComCtrls, NxEdit, Vcl.Imaging.pngimage, Vcl.ExtCtrls,
+  Data.DB, MemDS, DBAccess, MyAccess, AdvSmoothButton, AdvGroupBox,
+  AdvOfficeButtons, AdvSmoothLabel;
+
+type
+  TsettingFrm = class(TForm)
+    AdvPanel1: TAdvPanel;
+    Image1: TImage;
+    AdvPanel2: TAdvPanel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    na_tf: TNxSpinEdit;
+    GroupBox1: TGroupBox;
+    NxLinkLabel1: TNxLinkLabel;
+    cc_tf: TNxSpinEdit;
+    rd_tf: TNxSpinEdit;
+    AdvPanel3: TAdvPanel;
+    PDJButton2: TPDJButton;
+    PDJButton1: TPDJButton;
+    PDJButton3: TPDJButton;
+    sp_tf: TNxSpinEdit;
+    rp_tf: TNxSpinEdit;
+    bi_tf: TNxSpinEdit;
+    AdvPanelStyler1: TAdvPanelStyler;
+    quecntrQ: TMyQuery;
+    quecntrQdate: TDateField;
+    quecntrQtype: TStringField;
+    quecntrQnumber: TIntegerField;
+    quecntrQtype_na: TLargeintField;
+    quecntrQtype_cc: TLargeintField;
+    quecntrQtype_rd: TLargeintField;
+    quecntrQtype_rp: TLargeintField;
+    quecntrQtype_sp: TLargeintField;
+    quecntrQtype_bi: TLargeintField;
+    updateCntrQ: TMyQuery;
+    cntrQ: TMyQuery;
+    cntrQqueIDcntr: TIntegerField;
+    cntrQtype: TStringField;
+    cntrQnumber: TIntegerField;
+    cntrQdate: TDateField;
+    cntrQtime: TTimeField;
+    cntrTrailQ: TMyQuery;
+    quetrailQ: TMyQuery;
+    NxHeaderPanel1: TNxHeaderPanel;
+    AdvSmoothButton4: TAdvSmoothButton;
+    AdvSmoothButton9: TAdvSmoothButton;
+    Label9: TLabel;
+    NxEdit1: TNxEdit;
+    dropTableQ: TMyQuery;
+    manageoutTrailQ: TMyQuery;
+    manageOutlimitQ: TMyQuery;
+    manageOutlimitQentry: TIntegerField;
+    manageOutlimitQtype: TStringField;
+    manageOutlimitQnumber: TIntegerField;
+    manageOutlimitQdate: TDateField;
+    manageOutlimitQtime: TTimeField;
+    manageOutlimitQcode: TStringField;
+    manageOutlimitQqueid: TIntegerField;
+    manageOutlimitQgroupno: TIntegerField;
+    manageOutlimitQexecutedby: TStringField;
+    manageOutlimitQDepartment: TStringField;
+    manageOutlimitQuserid: TStringField;
+    manageOutlimitQcounter: TStringField;
+    manageOutlimitQnumberC: TStringField;
+    AdvPanel4: TAdvPanel;
+    AdvPanel5: TAdvPanel;
+    number_lb2: TAdvSmoothLabel;
+    AdvOfficeRadioGroup1: TAdvOfficeRadioGroup;
+    AdvSmoothButton1: TAdvSmoothButton;
+    AdvSmoothButton2: TAdvSmoothButton;
+    bannerQ: TMyQuery;
+    updateBannerQ: TMyQuery;
+    bannerQidbanner: TIntegerField;
+    bannerQmessages: TStringField;
+    RichEdit1: TRichEdit;
+    DeleteTeller: TMyQuery;
+    manageinTrailQ: TMyQuery;
+    Image2: TImage;
+    procedure PDJButton3Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure PDJButton2Click(Sender: TObject);
+    procedure PDJButton1Click(Sender: TObject);
+    procedure AdvSmoothButton4Click(Sender: TObject);
+    procedure AdvSmoothButton9Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure AdvSmoothButton1Click(Sender: TObject);
+    procedure AdvSmoothButton2Click(Sender: TObject);
+    procedure NxLinkLabel1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  settingFrm: TsettingFrm;
+  OKbtn : Boolean;
+  CancelB :Boolean;
+
+implementation
+
+{$R *.dfm}
+
+uses mainForm, data, areaForm;
+
+
+
+procedure TsettingFrm.AdvSmoothButton1Click(Sender: TObject);
+begin
+    case AdvOfficeRadioGroup1.ItemIndex of
+       0:begin
+          dataMod.MyConnection1.Connected := false;
+          dataMod.MyConnection1.Server    := 'server';
+          dataMod.MyConnection1.Database  := 'queuedb';
+          dataMod.MyConnection1.Connected := true;
+       end;
+       1:begin
+          dataMod.MyConnection1.Connected := false;
+          dataMod.MyConnection1.Server    := 'serverlao';
+          dataMod.MyConnection1.Database  := 'queuedb';
+          dataMod.MyConnection1.Connected := true;
+       end;
+       2:begin
+          dataMod.MyConnection1.Connected := false;
+          dataMod.MyConnection1.Server    := 'serverpao';
+          dataMod.MyConnection1.Database  := 'queuedb';
+          dataMod.MyConnection1.Connected := true;
+       end;
+       3:begin
+          dataMod.MyConnection1.Connected := false;
+          dataMod.MyConnection1.Server    := 'serversao';
+          dataMod.MyConnection1.Database  := 'queuedb';
+          dataMod.MyConnection1.Connected := true;
+       end;
+    end;
+    mainFrm.Timer3.Enabled := true;
+
+    bannerQ.Close;
+    bannerQ.Open;
+    RichEdit1. Lines.Clear;
+    RichEdit1. Lines.Text  :=  bannerQmessages.Text;
+
+
+    quecntrQ.Close;
+    quecntrQ.Open;
+
+    na_tf.Text := quecntrQtype_na.Text;
+    cc_tf.Text := quecntrQtype_cc.Text;
+    rd_tf.Text := quecntrQtype_rd.Text;
+    rp_tf.Text := quecntrQtype_rp.Text;
+    sp_tf.Text := quecntrQtype_sp.Text;
+    bi_tf.Text := quecntrQtype_bi.Text;
+
+    OKbtn := false;
+    CancelB := true;
+
+    AdvPanel2.Enabled := false;
+    AdvPanel3.Enabled := true;
+
+    AdvPanel4.Visible := false;
+
+
+end;
+
+procedure TsettingFrm.AdvSmoothButton2Click(Sender: TObject);
+begin
+  CancelB := true;
+  close
+end;
+
+procedure TsettingFrm.AdvSmoothButton4Click(Sender: TObject);
+begin
+  NxHeaderPanel1.Visible := false;
+  AdvPanel3.Enabled      := true;
+end;
+
+procedure TsettingFrm.AdvSmoothButton9Click(Sender: TObject);
+begin
+  if NxEdit1.Text ='Zaneco321' then
+  begin
+     if (messagedlg('Clear queuing number system.'+#13+'Click OK to confirm...',mtInformation, mbOKCancel, 0)= mrCancel ) then exit;
+
+     DeleteTeller.Execute;
+
+     quetrailQ.Execute;
+     cntrTrailQ.Execute;
+     manageoutTrailQ.Execute;
+     manageinTrailQ.Execute;
+
+     dropTableQ.Execute;
+
+     na_tf.Text := '0';
+     cc_tf.Text := '0';
+     rd_tf.Text := '0';
+     rp_tf.Text := '0';
+     sp_tf.Text := '0';
+     bi_tf.Text := '0';
+
+     NxHeaderPanel1.Visible := false;
+     AdvPanel3.Enabled      := true;
+     AdvPanel2.Enabled      := true;
+     OKbtn                  := true;
+  end
+  else
+  begin
+    messagedlg('Invalid password entry..',mtError,[mbOK],0);
+  end;
+
+end;
+
+procedure TsettingFrm.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  if CancelB then
+  begin
+    mainFrm.Close;
+  end;
+
+  Action := caFree;
+  settingFrm := nil;
+
+end;
+
+procedure TsettingFrm.FormShow(Sender: TObject);
+
+begin
+
+{showmessage('Height:'+IntToStr( GetSystemMetrics( SM_CYSCREEN ))+#13+
+            'Width: '+Inttostr(GetSystemMetrics( SM_CXSCREEN )));
+  ScrWidth := GetSystemMetrics( SM_CXSCREEN );
+ScrHeight := GetSystemMetrics( SM_CYSCREEN );}
+
+{var
+  MonInfo: TMonitorInfo;
+begin
+  MonInfo.cbSize := SizeOf(MonInfo);
+  GetMonitorInfo(MonitorFromWindow(Handle, MONITOR_DEFAULTTONEAREST), @MonInfo);
+  ShowMessage(Format('Current resolution: %dx%d',
+              [MonInfo.rcMonitor.Right - MonInfo.rcMonitor.Left,
+               MonInfo.rcMonitor.Bottom - MonInfo.rcMonitor.Top]));}
+
+if mainFrm.areaOk = false then
+   begin
+   AdvPanel4.Top  := 85;
+   AdvPanel4.Left := 83;
+   AdvPanel4.BringToFront;
+   AdvPanel4.Visible := true;
+
+   AdvPanel2.Enabled := false;
+   AdvPanel3.Enabled := false;
+   end else AdvPanel2.Enabled := true;
+
+end;
+
+procedure TsettingFrm.NxLinkLabel1Click(Sender: TObject);
+begin
+  updateBannerQ.ParamByName('message').Text := RichEdit1.Text;
+  updateBannerQ.Execute;
+
+  messagedlg('Message banner successfully saved..',mtInformation,[mbOK],0);
+end;
+
+procedure TsettingFrm.PDJButton1Click(Sender: TObject);
+begin
+  AdvPanel3.Enabled := false;
+
+  NxHeaderPanel1.Top  := 106;
+  NxHeaderPanel1.Left := 139;
+  NxHeaderPanel1.BringToFront;
+  NxHeaderPanel1.Visible := true;
+
+  NxEdit1.Text :='';
+end;
+
+procedure TsettingFrm.PDJButton2Click(Sender: TObject);
+var
+ typeStr :array[0..5] of String;
+ I :Integer;
+begin
+  typeStr[0] := 'NA';
+  typeStr[1] := 'CC';
+  typeStr[2] := 'RD';
+  typeStr[3] := 'RP';
+  typeStr[4] := 'SP';
+  typeStr[5] := 'BI';
+
+  if (messagedlg('Resume queuing number system.'+#13+'Click OK to confirm...',mtInformation, mbOKCancel, 0)= mrCancel ) then exit;
+
+
+  for I := 0 to 5 do
+  begin
+    cntrQ.Close;
+    cntrQ.ParamByName('type').Text := typeStr[I];
+    cntrQ.Open;
+
+    if not cntrQ.IsEmpty then
+    begin
+        updateCntrQ.ParamByName('ID').AsInteger := cntrQqueIDcntr.AsInteger;
+        updateCntrQ.ParamByName('date').AsDate  := now;
+        updateCntrQ.Execute;
+    end
+    else
+    begin
+      if typeStr[I] = 'NA' then
+        na_tf.Text := '0'
+      else if  typeStr[I] = 'CC' then
+        cc_tf.Text := '0'
+      else if  typeStr[I] = 'RD' then
+        rd_tf.Text := '0'
+      else if  typeStr[I] = 'RP' then
+        rp_tf.Text := '0'
+      else if  typeStr[I] = 'SP' then
+        sp_tf.Text := '0'
+      else if  typeStr[I] = 'BI' then
+        bi_tf.Text := '0';
+
+    end;
+  end;
+
+  messagedlg('Queuing Numbers successfully resume',mtInformation,[mbOK],0);
+  AdvPanel2.Enabled      := true;
+  OKbtn := true;
+end;
+
+procedure TsettingFrm.PDJButton3Click(Sender: TObject);
+begin
+
+
+  if OKbtn then
+  begin
+    manageOutlimitQ.Close;
+    manageOutlimitQ.Open;
+    manageOutlimitQ.First;
+
+    if not assigned(mainFrm) then
+    mainFrm := TmainFrm.Create(Application);
+
+       mainFrm.served_lb.Caption.Text   :=  manageOutlimitQtype.Text+ manageOutlimitQNumber.Text;
+       mainFrm.cntr_label.Caption.Text  :=  manageOutlimitQcounter.Text;
+
+       mainFrm.number_lb1.Caption.Text  := manageOutlimitQtype.Text+ manageOutlimitQNumber.Text;
+       mainFrm.counter_lb1.Caption.Text := manageOutlimitQcounter.Text;
+       manageOutlimitQ.Next;
+
+       mainFrm.number_lb2.Caption.Text  := manageOutlimitQtype.Text+ manageOutlimitQNumber.Text;
+       mainFrm.counter_lb2.Caption.Text := manageOutlimitQcounter.Text;
+       manageOutlimitQ.Next;
+
+       mainFrm.number_lb3.Caption.Text  := manageOutlimitQtype.Text+ manageOutlimitQNumber.Text;
+       mainFrm.counter_lb3.Caption.Text := manageOutlimitQcounter.Text;
+       manageOutlimitQ.Next;
+
+       mainFrm.number_lb4.Caption.Text  := manageOutlimitQtype.Text+ manageOutlimitQNumber.Text;
+       mainFrm.counter_lb4.Caption.Text := manageOutlimitQcounter.Text;
+       manageOutlimitQ.Next;
+
+       mainFrm.number_lb5.Caption.Text  := manageOutlimitQtype.Text+ manageOutlimitQNumber.Text;
+       mainFrm.counter_lb5.Caption.Text := manageOutlimitQcounter.Text;
+       manageOutlimitQ.Next;
+
+       mainFrm.number_lb6.Caption.Text  := manageOutlimitQtype.Text+ manageOutlimitQNumber.Text;
+       mainFrm.counter_lb6.Caption.Text := manageOutlimitQcounter.Text;
+       manageOutlimitQ.Next;
+
+       mainFrm.number_lb7.Caption.Text  := manageOutlimitQtype.Text+ manageOutlimitQNumber.Text;
+       mainFrm.counter_lb7.Caption.Text := manageOutlimitQcounter.Text;
+       manageOutlimitQ.Next;
+
+       mainFrm.GsScroller1.Items[1].Text1  := RichEdit1.Lines.Text;
+       mainFrm.GsScroller1.Items[0].Text1  := RichEdit1.Lines.Text;
+
+
+
+
+
+   { while not manageOutlimitQ.Eof do
+    begin
+       mainFrm.served_lb.Caption.Text   :=  manageOutlimitQtype.Text+ manageOutlimitQNumber.Text;
+       mainFrm.cntr_label.Caption.Text  :=  manageOutlimitQcounter.Text;
+
+       mainFrm.number_lb6.Caption.Text  := mainFrm.number_lb5.Caption.Text;
+       mainFrm.counter_lb6.Caption.Text := mainFrm.counter_lb5.Caption.Text;
+
+       mainFrm.number_lb5.Caption.Text  := mainFrm.number_lb4.Caption.Text;
+       mainFrm.counter_lb5.Caption.Text := mainFrm.counter_lb4.Caption.Text;
+       mainFrm.number_lb4.Caption.Text  := mainFrm.number_lb3.Caption.Text;
+       mainFrm.counter_lb4.Caption.Text := mainFrm.counter_lb3.Caption.Text;
+       mainFrm.number_lb3.Caption.Text  := mainFrm.number_lb2.Caption.Text;
+       mainFrm.counter_lb3.Caption.Text := mainFrm.counter_lb2.Caption.Text;
+       mainFrm.number_lb2.Caption.Text  := mainFrm.number_lb1.Caption.Text;
+       mainFrm.counter_lb2.Caption.Text := mainFrm.counter_lb1.Caption.Text;
+       mainFrm.number_lb1.Caption.Text  := manageOutlimitQtype.Text+ manageOutlimitQNumber.Text;
+       mainFrm.counter_lb1.Caption.Text := manageOutlimitQcounter.Text;
+
+       manageOutlimitQ.Next;
+    end; }
+
+    mainFrm.banner.Close;
+    mainFrm.banner.Open;
+
+    mainFrm.ChangeScale(96,120);
+
+    mainFrm.areaOk := true;
+
+    mainFrm.Show;
+
+    CancelB := false;
+    close;
+  end;
+end;
+
+end.

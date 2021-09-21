@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2017/06/15 13:21:47.000.551,=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/06/15 13:44:18.000.992,=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/06/15 13:46:59.000.520,=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/06/15 13:48:55.000.424,=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/06/15 14:38:45.000.571,=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/06/15 14:40:29.000.481,=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/06/15 15:09:21.000.066,=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/10/23 15:17:19.000.301,=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/11/09 13:26:22.000.602,=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/11/09 13:27:34.000.686,D:\Edit Source Code\2017\Queuing System\QueuingSystem.dfm=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2017/11/09 13:27:34.000.686,D:\Edit Source Code\2017\Queuing System\QueuingSystem.pas=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2017/11/09 13:28:08.000.442,D:\Edit Source Code\2017\Queuing System\QueuingSys.dproj=C:\Users\Ronel\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2017/11/09 19:01:39.000.241,=D:\Edit Source Code\2017\Queuing System\Unit2.pas</Transaction>
+    <Transaction>2017/11/09 19:01:54.000.043,=D:\Edit Source Code\2017\Queuing System\Unit1.pas</Transaction>
+    <Transaction>2017/11/09 19:02:10.000.961,=D:\Edit Source Code\2017\Queuing System\Unit1.pas</Transaction>
+    <Transaction>2017/11/09 19:03:14.000.381,D:\Edit Source Code\2017\Queuing System\Unit1.dfm=D:\Edit Source Code\2017\Queuing System\dataQ.dfm</Transaction>
+    <Transaction>2017/11/09 19:03:14.000.381,D:\Edit Source Code\2017\Queuing System\Unit1.pas=D:\Edit Source Code\2017\Queuing System\dataQ.pas</Transaction>
+    <Transaction>2017/11/10 08:36:30.000.130,=D:\Edit Source Code\2017\Queuing System\Unit1.pas</Transaction>
+    <Transaction>2017/11/10 08:38:59.000.897,D:\Edit Source Code\2017\Queuing System\settingsForm.pas=D:\Edit Source Code\2017\Queuing System\Unit1.pas</Transaction>
+    <Transaction>2017/11/10 08:38:59.000.897,D:\Edit Source Code\2017\Queuing System\settingsForm.dfm=D:\Edit Source Code\2017\Queuing System\Unit1.dfm</Transaction>
+  </Transactions>
+	<ProjectSortOrder AutoSort="0" SortType="0">
+    <File Path="dataQ.pas"/>
+    <File Path="dataQ.dfm"/>
+    <File Path="QueuingSystem.pas"/>
+    <File Path="QueuingSystem.dfm"/>
+    <File Path="settingsForm.pas"/>
+    <File Path="settingsForm.dfm"/>
+  </ProjectSortOrder>
+</BorlandProject>

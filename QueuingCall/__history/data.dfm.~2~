@@ -1,0 +1,19 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 387
+  Width = 552
+  object MyQuery1: TMyQuery
+    Left = 136
+    Top = 40
+  end
+  object MyConnection1: TMyConnection
+    Database = 'queuedb'
+    Username = 'root'
+    Server = 'localhost'
+    Connected = True
+    LoginPrompt = False
+    Left = 32
+    Top = 24
+    EncryptedPassword = '9DFF93FF9EFF96FF8CFF9AFF'
+  end
+end

@@ -1,0 +1,26 @@
+unit dataQ;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, DBAccess, MyAccess;
+
+type
+  TData = class(TDataModule)
+    MyConnection1: TMyConnection;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Data: TData;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

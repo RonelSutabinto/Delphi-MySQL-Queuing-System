@@ -1,0 +1,385 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 507
+  ClientWidth = 495
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object AdvPanel1: TAdvPanel
+    Left = 0
+    Top = 0
+    Width = 495
+    Height = 507
+    Align = alClient
+    BevelOuter = bvNone
+    Color = clWhite
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+    UseDockManager = True
+    Version = '2.3.0.0'
+    BorderColor = -1
+    BorderWidth = 2
+    Caption.Color = clHighlight
+    Caption.ColorTo = clBlue
+    Caption.Font.Charset = DEFAULT_CHARSET
+    Caption.Font.Color = clWindowText
+    Caption.Font.Height = -11
+    Caption.Font.Name = 'Tahoma'
+    Caption.Font.Style = []
+    Caption.Indent = 2
+    CollapsColor = clBtnFace
+    CollapsDelay = 0
+    ColorTo = 12615680
+    ShadowColor = clBlack
+    ShadowOffset = 0
+    StatusBar.BorderColor = clSilver
+    StatusBar.BorderStyle = bsSingle
+    StatusBar.Font.Charset = DEFAULT_CHARSET
+    StatusBar.Font.Color = clBlack
+    StatusBar.Font.Height = -11
+    StatusBar.Font.Name = 'Tahoma'
+    StatusBar.Font.Style = []
+    StatusBar.Color = 14938354
+    StatusBar.ColorTo = clWhite
+    Text = ''
+    ExplicitWidth = 383
+    ExplicitHeight = 357
+    FullHeight = 200
+    object AdvPanel2: TAdvPanel
+      Left = 2
+      Top = 2
+      Width = 491
+      Height = 41
+      Align = alTop
+      BevelOuter = bvNone
+      Color = 8454016
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 0
+      UseDockManager = True
+      Version = '2.3.0.0'
+      BorderColor = clGray
+      BorderShadow = True
+      Caption.Color = clHighlight
+      Caption.ColorTo = clBlue
+      Caption.Font.Charset = DEFAULT_CHARSET
+      Caption.Font.Color = clWindowText
+      Caption.Font.Height = -11
+      Caption.Font.Name = 'Tahoma'
+      Caption.Font.Style = []
+      Caption.Indent = 2
+      CollapsColor = clBtnFace
+      CollapsDelay = 0
+      ColorTo = 12615680
+      ShadowColor = clBlack
+      ShadowOffset = 0
+      StatusBar.BorderColor = clSilver
+      StatusBar.BorderStyle = bsSingle
+      StatusBar.Font.Charset = DEFAULT_CHARSET
+      StatusBar.Font.Color = clBlack
+      StatusBar.Font.Height = -11
+      StatusBar.Font.Name = 'Tahoma'
+      StatusBar.Font.Style = []
+      StatusBar.Color = 14938354
+      StatusBar.ColorTo = clWhite
+      Text = ''
+      ExplicitWidth = 379
+      FullHeight = 200
+      object number_lb2: TAdvSmoothLabel
+        Left = -20
+        Top = 3
+        Width = 279
+        Height = 33
+        Fill.ColorMirror = clNone
+        Fill.ColorMirrorTo = clNone
+        Fill.GradientType = gtVertical
+        Fill.GradientMirrorType = gtSolid
+        Fill.BorderColor = clNone
+        Fill.Rounding = 0
+        Fill.ShadowOffset = 0
+        Fill.Glow = gmNone
+        Caption.Text = 'Consumer Caller'
+        Caption.Location = plBottomCenter
+        Caption.Font.Charset = DEFAULT_CHARSET
+        Caption.Font.Color = clWindowText
+        Caption.Font.Height = -24
+        Caption.Font.Name = 'Arial Black'
+        Caption.Font.Orientation = 34
+        Caption.Font.Pitch = fpVariable
+        Caption.Font.Style = [fsBold]
+        Caption.ColorStart = clWhite
+        Caption.ColorEnd = clWhite
+        Caption.HatchStyle = HatchStyleDashedVertical
+        CaptionShadow.Text = 'Consumer Caller'
+        CaptionShadow.Font.Charset = DEFAULT_CHARSET
+        CaptionShadow.Font.Color = clWindowText
+        CaptionShadow.Font.Height = -24
+        CaptionShadow.Font.Name = 'Arial Black'
+        CaptionShadow.Font.Style = [fsBold]
+        CaptionShadow.ColorStart = clGreen
+        CaptionShadow.ColorEnd = clBlack
+        CaptionShadowVisible = True
+        CaptionShadowOffsetTop = 2
+        Version = '1.6.0.2'
+        WordWrap = True
+      end
+      object AdvSmoothButton1: TAdvSmoothButton
+        Left = 332
+        Top = 5
+        Width = 36
+        Height = 26
+        Appearance.PictureAlignment = taCenter
+        Appearance.Font.Charset = DEFAULT_CHARSET
+        Appearance.Font.Color = clBlack
+        Appearance.Font.Height = -13
+        Appearance.Font.Name = 'Tahoma'
+        Appearance.Font.Style = [fsBold]
+        Appearance.Spacing = 1
+        Appearance.Rounding = 2
+        Status.Caption = '0'
+        Status.Appearance.Fill.Color = clRed
+        Status.Appearance.Fill.ColorMirror = clNone
+        Status.Appearance.Fill.ColorMirrorTo = clNone
+        Status.Appearance.Fill.GradientType = gtSolid
+        Status.Appearance.Fill.GradientMirrorType = gtSolid
+        Status.Appearance.Fill.BorderColor = clGray
+        Status.Appearance.Fill.Rounding = 0
+        Status.Appearance.Fill.ShadowOffset = 0
+        Status.Appearance.Fill.Glow = gmNone
+        Status.Appearance.Font.Charset = DEFAULT_CHARSET
+        Status.Appearance.Font.Color = clWhite
+        Status.Appearance.Font.Height = -11
+        Status.Appearance.Font.Name = 'Tahoma'
+        Status.Appearance.Font.Style = []
+        Bevel = False
+        BevelColor = clBlack
+        Color = 4227072
+        ParentFont = False
+        Picture.Data = {
+          89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+          610000000473424954080808087C086488000000097048597300000B1300000B
+          1301009A9C180000014C49444154388DC592CF6AC24010C6BF4D45425B25EC4D
+          8808E696431EA1410FA5D0225ED487F46F3DD44B8BD052DACB3E42A09243F1E4
+          45644761B7A78475137A754EBB33F3FBF86676814BC7957909C3F0B65EAF77A3
+          28FAD96C36CAAA556BB5DA7DB3D9FCDD6EB7A72CEF983011AD01ACD2349D8661
+          583561229A31C65EF6FBFD5BA3D1B8CE6A2C3B0441F0006095DDB5D64BD77507
+          00404433008F86A16E9224EB3307BEEFBF6AAD97B932633D29E5584A39B1E079
+          9224EF0507995529E59831D62B5B1880B9E779232144BE036677FC235280CF46
+          B0A220AC942AE44A4720A22980A7B266A5D482733E345D38163CB3E0B9526A91
+          373B4E7FB7DB4DE238AE140488A8036BDB9EE78D38E743A5D4736E99B15E9AA6
+          770581C3E1F0A1B5FE366121C4490871E29C0F8C27FE3C1E8F5F6523228AA29B
+          76BBDD85F5C501208EE34A10049D56ABE596C2178B3FFDBC909FF29B00430000
+          000049454E44AE426082}
+        DisabledColor = 8404992
+        TabOrder = 0
+        ShowFocus = False
+        Version = '2.0.1.0'
+      end
+    end
+    object AdvSmoothButton3: TAdvSmoothButton
+      Left = 49
+      Top = 170
+      Width = 210
+      Height = 41
+      Appearance.Alignment = taLeftJustify
+      Appearance.PictureAlignment = taLeftJustify
+      Appearance.Font.Charset = DEFAULT_CHARSET
+      Appearance.Font.Color = clBlack
+      Appearance.Font.Height = -13
+      Appearance.Font.Name = 'Tahoma'
+      Appearance.Font.Style = [fsBold]
+      Appearance.Spacing = 8
+      Appearance.Rounding = 2
+      Status.Caption = '0'
+      Status.Appearance.Fill.Color = clRed
+      Status.Appearance.Fill.ColorMirror = clNone
+      Status.Appearance.Fill.ColorMirrorTo = clNone
+      Status.Appearance.Fill.GradientType = gtSolid
+      Status.Appearance.Fill.GradientMirrorType = gtSolid
+      Status.Appearance.Fill.BorderColor = clGray
+      Status.Appearance.Fill.Rounding = 0
+      Status.Appearance.Fill.ShadowOffset = 0
+      Status.Appearance.Fill.Glow = gmNone
+      Status.Appearance.Font.Charset = DEFAULT_CHARSET
+      Status.Appearance.Font.Color = clWhite
+      Status.Appearance.Font.Height = -11
+      Status.Appearance.Font.Name = 'Tahoma'
+      Status.Appearance.Font.Style = []
+      BevelColor = clBlack
+      Caption = 'New Applicant'
+      Color = 16744448
+      ParentFont = False
+      Picture.Data = {
+        89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+        F40000021449444154785EC5975D6AC24010C78D2C3EF86053411005537C1692
+        9CC0F406DE40BD416EA0DE2037504F506F503D410CF82688BE8828D2F82C319D
+        81794813E3C76E5207960DCCCCE69FD9D95F12C9F7FDCC2B4D8A73E8BADE83C9
+        9424494607087561B26CDB1EA42E4055D5214C9D989C91E338DDD404341A8D26
+        3CF5342E81AAA12D160B2709012CECB85C2EC603792D18A90910594F5C80E779
+        EB07F2D6A93661BD5EB761D26272E6ABD54A4FAD02D464068C0938C2FD308506
+        6DFD1B241445516BB55A0F075EA77AB34AA5F2066358AD567D1C70DDBE12D30E
+        F88798930807CAE5322E340DED3B92EF63B7DB9D0231D87C72104AE0EFF21394
+        04944AA56F4830AE00A77F381C0614D383987E28C4D8EFF73311824AC5623196
+        7C24C2C41962AC90CB3D1E8FEF4F12D40082CE820E06E0C172DDCAB32839721C
+        39088A31110102C74A9CA00CC8C77B4F5998A0548144042C97CB3110D4BC43D0
+        F1B50AB8B4D83336CF66B3461204951863089CD11302D6B098763E9F4FB7080A
+        425A747A269BCDC6B90922789A26C2039FE05E359017B06DB32041113420AA43
+        55E86CB7DB7198A0E01F911F6713624E2480CF04093A8761600CE315409D3FC1
+        ED083727C16B403184E53FA651AF7C7257808FA05132720B9065F94BF4DB00AB
+        C02DA0502824F247C304F63FF33201F97C5E49EAEB997B0B72B9DC0F3143C45C
+        26F0F63389A022668A80284AD0C7CCA5E36B21515FFE7BFE0B98ED12C40F6121
+        340000000049454E44AE426082}
+      DisabledColor = 8404992
+      TabOrder = 1
+      ShowFocus = False
+      Version = '2.0.1.0'
+    end
+  end
+  object AdvSmoothButton4: TAdvSmoothButton
+    Left = 49
+    Top = 266
+    Width = 210
+    Height = 41
+    Appearance.PictureAlignment = taCenter
+    Appearance.Font.Charset = DEFAULT_CHARSET
+    Appearance.Font.Color = clBlack
+    Appearance.Font.Height = -13
+    Appearance.Font.Name = 'Tahoma'
+    Appearance.Font.Style = [fsBold]
+    Appearance.Spacing = 1
+    Appearance.Rounding = 2
+    Status.Caption = '0'
+    Status.Appearance.Fill.Color = clRed
+    Status.Appearance.Fill.ColorMirror = clNone
+    Status.Appearance.Fill.ColorMirrorTo = clNone
+    Status.Appearance.Fill.GradientType = gtSolid
+    Status.Appearance.Fill.GradientMirrorType = gtSolid
+    Status.Appearance.Fill.BorderColor = clGray
+    Status.Appearance.Fill.Rounding = 0
+    Status.Appearance.Fill.ShadowOffset = 0
+    Status.Appearance.Fill.Glow = gmNone
+    Status.Appearance.Font.Charset = DEFAULT_CHARSET
+    Status.Appearance.Font.Color = clWhite
+    Status.Appearance.Font.Height = -11
+    Status.Appearance.Font.Name = 'Tahoma'
+    Status.Appearance.Font.Style = []
+    BevelColor = clBlack
+    Caption = 'Disconnection/Reco'
+    Color = 16744448
+    ParentFont = False
+    Picture.Data = {
+      89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+      F4000000097048597300000B1300000B1301009A9C18000000206348524D0000
+      7A25000080830000F9FF000080E9000075300000EA6000003A980000176F925F
+      C546000001A14944415478DAC4973D4B034110861F45349D040B257E149ADA40
+      40B489BD7F45EB68133F4238B5486B0AC92FD1D62E5A888D44EC2C0495208786
+      A4399B59580EEEB27BBB312F0CDCC1DD3DEFEECECEEDC06474099C03CC4C005E
+      078ED4CD380CCC010B72FD090C63F013ED7ECA27B80C5C035DE05BE21968019B
+      400D88B4A8FB841F02FD18408FC138E1410A381E43E0D81778DA121E01BF40D1
+      9781034BB88A962F031BC07D06032FB253BC6811E8581A088182CF24B4351102
+      CBAED033E0462B3836265E819C0BBC211FEA032B1966A2ED03DE032A19966308
+      946C80FBC0AA21DCC444354B85BB039A86F03413816B797D037646BC5700F29A
+      89872CF06AC2F43D02F329EF55800FD91D4A6BB28CC62A49A224255107584A80
+      F7E49953972C6F1B6CA3B8091DDE7081E7A448448626F2C0B62F38521E438B92
+      FA04BCFB82AB0CB631A0A2E97AA850FA9211D96A0B58F7616000DC66F8C62EB0
+      E7EBD75A047E2C9720880DC449B51175207229AF261D4BDA515A8FBE1CC5C706
+      AF49337125CD856A34BAD27C947DC22F46340DB3B2450B3E0F93497FBE3A1352
+      202DF3BFEB6F004C69280878C2518B0000000049454E44AE426082}
+    DisabledColor = 8404992
+    TabOrder = 1
+    ShowFocus = False
+    Version = '2.0.1.0'
+  end
+  object AdvSmoothButton5: TAdvSmoothButton
+    Left = 49
+    Top = 217
+    Width = 210
+    Height = 41
+    Appearance.PictureAlignment = taCenter
+    Appearance.Font.Charset = DEFAULT_CHARSET
+    Appearance.Font.Color = clBlack
+    Appearance.Font.Height = -13
+    Appearance.Font.Name = 'Tahoma'
+    Appearance.Font.Style = [fsBold]
+    Appearance.Spacing = 1
+    Appearance.Rounding = 2
+    Status.Caption = '0'
+    Status.Appearance.Fill.Color = clRed
+    Status.Appearance.Fill.ColorMirror = clNone
+    Status.Appearance.Fill.ColorMirrorTo = clNone
+    Status.Appearance.Fill.GradientType = gtSolid
+    Status.Appearance.Fill.GradientMirrorType = gtSolid
+    Status.Appearance.Fill.BorderColor = clGray
+    Status.Appearance.Fill.Rounding = 0
+    Status.Appearance.Fill.ShadowOffset = 0
+    Status.Appearance.Fill.Glow = gmNone
+    Status.Appearance.Font.Charset = DEFAULT_CHARSET
+    Status.Appearance.Font.Color = clWhite
+    Status.Appearance.Font.Height = -11
+    Status.Appearance.Font.Name = 'Tahoma'
+    Status.Appearance.Font.Style = []
+    BevelColor = clBlack
+    Caption = 'Consumer Complaints'
+    Color = 16744448
+    ParentFont = False
+    Picture.Data = {
+      89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+      F4000000097048597300000B1300000B1301009A9C18000000206348524D0000
+      7A25000080830000F9FF000080E9000075300000EA6000003A980000176F925F
+      C546000004084944415478DABC57CF8B1C5510FEAAEAF5EB99D99E2C89C8BA2A
+      A8590D88C1938A594457D9A3B206C4FF40C19CF4E2414F8A81205EF5267B11F1
+      14148322D14BF4125D5691804894CD5EC49818D8B567FAC7F4ABF2B033D999CD
+      CECEB03BFAE0753774F5AB7A5F7DEFAB6A5A5C5C60DC3AA87BB7BEBB613283FA
+      A639003CC258551500FC70131BB1C4C07B65E60A8043EF32F453A25096E56CAB
+      557C0CE0F08410A81A8DF8B538F6DF9A19BB11C66686BB55ED29A2C9783703AA
+      4A1F8E635CC008F86F424634B1FC779145D57BE6F13833F161630730E9DDEF1C
+      8C3148F05FC1302E07C4CC7A81FC7F011021008073B25AAFC72FC6B13F03D095
+      4907C243CE7FD5E984A4D5CA96F2BC7C1DC08C089F6B34E213DEBBB727A88AB7
+      0A11115565D979A4D5CA9755F5F8402E44BE6B34E293CEE99F59567C30710488
+      285455B8BFD5CA3F33B3E34484FE19823ED16AE5179C938F9C93F3130F40552D
+      4DB337CCECCE21BC80AA3D5814E52BB59A3FBD5F3A9821DA2D0541D59A66F6CC
+      085D4008B604609999560134073961B119EEE9FB648388AE6E838CCA39F9A577
+      B45D1FFC06D8D4384547556744B875E8D0D40900D196C283000AAA9AA46976D1
+      CC8E9A01F5BA7FAF56F3EF6EEDDA7AD530333307C0B84F70888852007F8F5647
+      BA46C4393395CCD466E68C99DB225C44915C774ECE76D72C99E95311EED9B599
+      39EFDF783F07849953227C3D2AB7DEBB2F9849BB0B496F9A9900842872DFA81A
+      BC775F7A1F5D5235E9B7DBEB1450BD1E9F66A62BC39C87107E728EDF1F2E6206
+      115E27C2F55ACDBFC3CC7B4A39EFD07D8963BF9E24F5E798F9879E04F7D44F84
+      CF2749E3D9288A6E98190F61B8734ED6A6A66AF322BCD2CDF578424444150044
+      91BBD46C369EEC74AAC754F55E33AB9C9335EFA3EF8928981988A8DA63F14EAD
+      165F1EE57C000122AA8AA273344DB357F3BC7CDA39C94578CDCC6E33C38C88FC
+      CACC21CB8A93699A9DEA74AABB80EDC662274FC7710E00B4B8B8E088A86AB78B
+      97B3AC3803D86166FE2D49EAF3CCCC1B1BE9CFCEC9B566B3F17855E91D69DABE
+      A8AA4788E8AAF7EE549234CE8EEB6CB78CC9DCDC7D5A969DB9763B3F478484B6
+      9ABF2365591EABD5FC8700C839F94A555736375B9F13D1B1AE4D1242588822B7
+      2CC2ED314BFBEE2950B547CD10EF006729CF3B2F9961DACCA6B3AC789399E707
+      09473321E84300D981AAA1994DEFF6B228CAB7887083990B000FEC5E1B70E8C0
+      E5788F2663D60CB321E8D016DB4C0F5E0D89283B408BDD9E400058DF6F7F2F22
+      7F1C28003323E7E44722AC6DA9DEE83F9B9E3A8AF04A14B9DF87A9E2B81C1011
+      B73935557BA12CABE75575CE0CB70348CC2CDE2E1E1688A800E81F66FA4B442E
+      7BEF3E214265365860F6D1139A8B63BFEA7DB4DA23651709B755B2C900538002
+      116EB66880F5BA9B7D1FC37F0700474FE821F43926640000000049454E44AE42
+      6082}
+    DisabledColor = 8404992
+    TabOrder = 2
+    ShowFocus = False
+    Version = '2.0.1.0'
+  end
+end

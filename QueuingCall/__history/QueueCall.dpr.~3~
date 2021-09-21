@@ -1,0 +1,18 @@
+program QueueCall;
+
+uses
+  Vcl.Forms,
+  mainForm in 'mainForm.pas' {mainFrm},
+  data in 'data.pas' {DataModule1: TDataModule},
+  settingForm in 'settingForm.pas' {settingFrm};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TmainFrm, mainFrm);
+  Application.CreateForm(TDataModule1, DataModule1);
+  Application.CreateForm(TsettingFrm, settingFrm);
+  Application.Run;
+end.
